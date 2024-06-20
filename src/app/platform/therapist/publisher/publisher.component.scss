@@ -1,0 +1,96 @@
+@import '../../../../assets/css/variable/variable';
+
+// .video-button {
+//     position: absolute;
+//     bottom: 25px;
+//     z-index: 1;
+// }
+.app_publisher_box{
+   position: absolute;
+   bottom: 25px;
+   top: auto;
+   right: 25px;
+   left: auto;
+   .OT_publisher {
+     width: 293px !important;
+     height: 225px !important;
+   }
+}
+.video_btn {
+    position: absolute;
+    bottom: 25px;
+    top: auto;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    justify-content: center;
+    background: linear-gradient(90deg, #407FEA 0%, #6CB9DA 100%);
+    border-radius: 12px;
+    padding: 10px 20px;
+    gap: 0 40px;
+    .btn{
+        padding: 0;
+        border: none;
+    }
+}
+  
+
+
+@media screen and (max-width:$desktop) {
+    .video_btn{
+        gap: 0 10px;
+        .btn{
+           &:nth-child(1){
+                svg{
+                    width: 30px;
+                    height: 21px;
+                }
+           }
+           &:nth-child(2){
+            svg{
+                width: 18px;
+                height: 24px;
+            }
+          }
+          &:nth-child(3){
+            svg{
+                width: 24px;
+                height: 24px;
+            }
+          }
+          &:nth-child(4){
+            svg{
+                width: 22px;
+                height: 21px;
+            }
+          }
+          &:nth-child(5){
+            svg{
+                width: 5px;
+                height: 19px;
+            }
+          }
+          &:nth-child(6){
+            svg{
+                width: 35px;
+                height: 31px;
+            }
+          }
+       
+        }
+    }
+}
+
+
+@media all and (max-width:$desktop_large){
+  .app_publisher_box .OT_publisher {
+    width: 195px !important;
+    height: 150px !important;
+  }
+}
+@media all and (max-width:$medium_iphone){
+  .app_publisher_box{
+    bottom: 85px;
+    top: auto;
+  }
+}

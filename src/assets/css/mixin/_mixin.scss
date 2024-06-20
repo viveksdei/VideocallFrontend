@@ -1,0 +1,59 @@
+
+@mixin loginpart {
+    // min-height: 80vh;
+    // padding: 90px 25px;
+    min-height: 100vh;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+@mixin formfieldinfix {
+    min-height: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    // font-size: $font_medium;
+}
+@mixin formfieldinfixexsmall {
+    min-height: 30px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+@mixin formfieldinfixsmall {
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+@mixin formfieldinfixmedium {
+    min-height: 45px;
+    padding-top: 14px;
+    padding-bottom: 12px;
+}
+@mixin formfieldinfixlarge {
+    min-height: 56px;
+}
+@mixin commonbtn {
+    font-family: $font_family_body;
+    height: 46px;
+    line-height: 46px;
+    text-align: center;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: $font_medium;
+    font-weight: 500;
+    border-radius: 5px;  
+    text-transform: capitalize;
+}
+
+@mixin online {
+    height: 8px;
+    width: 8px;
+    background: $bodyhovercolor;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    right: -3px;
+    left: auto;
+    bottom: auto;
+    top: 10px;
+ }

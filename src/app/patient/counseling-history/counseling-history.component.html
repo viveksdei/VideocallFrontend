@@ -1,0 +1,269 @@
+<div class="note_archive">
+    <div class="note_archive_inner">
+        <div class="row m-0">
+            <div class="col-xl-3 sidebar left_sidebar">
+                <button class="btn btn-link btn_back"(click)="backtoDashboard()"><mat-icon>west</mat-icon>Back To Dashboard</button>
+                <h2>Counseling History<span>{{counselingCount}}</span></h2>
+                <div class="card active" *ngFor="let item of sessionGrp; let i = index">
+                    <div class="top_part part" (click)="selectedGrp(item,i+1)">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Counseling {{i+1}}</h3>
+                    </div>
+                    <div class="bottom_part part" (click)="selectedGrp(item,i+1)">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>{{item.createdDate}}</span>
+                               </div>
+                               <!-- <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div> -->
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div>
+                <!-- <div class="card">
+                    <div class="top_part part">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Counseling 2</h3>
+                    </div>
+                    <div class="bottom_part part">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>24th August 2023</span>
+                               </div>
+                               <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div>
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="top_part part">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Counseling 3</h3>
+                    </div>
+                    <div class="bottom_part part">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>24th August 2023</span>
+                               </div>
+                               <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div>
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="top_part part">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Counseling 4</h3>
+                    </div>
+                    <div class="bottom_part part">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>24th August 2023</span>
+                               </div>
+                               <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div>
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="top_part part">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Counseling 5</h3>
+                    </div>
+                    <div class="bottom_part part">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>24th August 2023</span>
+                               </div>
+                               <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div>
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div> -->
+            </div>
+            <div class="col-xl-6 main_content">
+                <div class="top_part part">
+                    <div class="left_side side">
+                        <div class="session_block">
+                            <div class="icon">
+                                <img [src]="session" alt="Date">
+                             </div>
+                             <h3>{{selectedGrpV.session}}</h3>
+                        </div>
+                        <div class="time_block">
+                            <div class="time">
+                                <img [src]="calender" alt="Date">
+                                <span>{{selectedGrpV.date}}</span>
+                            </div>
+                            <!-- <div class="time">
+                                <img [src]="clock" alt="Clock">
+                                <span>10:00am</span>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="right_side side">
+                        <button class="btn btn-link"><img [src]="prev_btn" alt="Button" (click)="prevRecord()"></button>
+                        <button class="btn btn-link"><img [src]="next_btn" alt="Button" (click)="nextRecord()"></button>
+                    </div>
+                </div>
+                <!-- DAP -->
+                <div class="bottom_part part" *ngFor="let item of dapData[0]">
+                    <p>Notes taken in: <button class="btn btn-primary">DAP</button></p>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Data</label>
+                            <div class="value"[innerHTML]="item.data"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Assessment</label>
+                            <div class="value"[innerHTML]="item.assessment"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Plan</label>
+                            <div class="value"[innerHTML]="item.plans"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SOAP -->
+                <div class="bottom_part part" *ngFor="let item of soapData[0]">
+                    <p>Notes taken in: <button class="btn btn-primary">SOAP</button></p>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Subjective</label>   
+                            <div class="value"[innerHTML]="item.subjective"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Objective</label>   
+                            <div class="value"[innerHTML]="item.objective"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Assessment</label>   
+                            <div class="value"[innerHTML]="item.assessment"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Plan</label>
+                            <div class="value"[innerHTML]="item.plans"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xl-3 sidebar right_sidebar">
+                <div class="patient_profile">
+
+                    <div class="profile_item profile">
+                        <h2 class="title">Your Therapist</h2>
+                        <div class="therapist_profile">
+                          <div class="profile_img">
+                            <img [src]="profile_img" alt="Profile Image">
+                          </div>
+                          <h3 class="prfile_title">Nasma Ameen</h3>
+                          <span class="profile_rating">Patient Since July 2023</span>
+                          <!-- <div class="rating">
+              
+                                          </div> -->
+                          <button class="btn btn-primary btn_small">View Therapist Profile</button>
+                        </div>
+                        <button class="btn btn-light btn_medium request_therapy">Request New Therapist</button>
+                    </div>
+      
+                    <div class="profile_item session">
+                      <div class="title_wrapper">
+                        <h4 class="title">Upcoming Sessions</h4>
+                      </div>
+                      <div class="video_session session">
+                        <div class="top_section section">
+                            <h4>Video Session</h4>
+                            <label class="approved">Approved</label>
+                        </div>
+                        <div class="bottom_section section">
+                            <div class="dateandtime">
+                                <div class="item">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                                       <path d="M14.8555 2.00236H12.1985V0.673828H10.87V2.00236H5.55583V0.673828H4.22729V2.00236H1.57023C0.839539 2.00236 0.241699 2.6002 0.241699 3.33089V16.6162C0.241699 17.3469 0.839539 17.9447 1.57023 17.9447H14.8555C15.5862 17.9447 16.1841 17.3469 16.1841 16.6162V3.33089C16.1841 2.6002 15.5862 2.00236 14.8555 2.00236ZM14.8555 16.6162H1.57023V7.31649H14.8555V16.6162ZM14.8555 5.98796H1.57023V3.33089H4.22729V4.65942H5.55583V3.33089H10.87V4.65942H12.1985V3.33089H14.8555V5.98796Z" fill="#EDA92A"/>
+                                   </svg>
+                                       <span>24th August 2023</span>
+                               </div>
+                               <div class="item">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                       <path d="M0.95459 8.30859C0.95459 9.28633 1.14717 10.2545 1.52133 11.1578C1.89549 12.0611 2.44391 12.8819 3.13527 13.5732C3.82663 14.2646 4.6474 14.813 5.5507 15.1872C6.45401 15.5613 7.42217 15.7539 8.3999 15.7539C9.37763 15.7539 10.3458 15.5613 11.2491 15.1872C12.1524 14.813 12.9732 14.2646 13.6645 13.5732C14.3559 12.8819 14.9043 12.0611 15.2785 11.1578C15.6526 10.2545 15.8452 9.28633 15.8452 8.30859C15.8452 6.33397 15.0608 4.44023 13.6645 3.04396C12.2683 1.6477 10.3745 0.863281 8.3999 0.863281C6.42528 0.863281 4.53154 1.6477 3.13527 3.04396C1.739 4.44023 0.95459 6.33397 0.95459 8.30859Z" stroke="#EDA92A" stroke-width="1.65451" stroke-linecap="round" stroke-linejoin="round"/>
+                                       <path d="M8.3999 4.17188V8.30816L10.8817 10.7899" stroke="#EDA92A" stroke-width="1.65451" stroke-linecap="round" stroke-linejoin="round"/>
+                                   </svg>
+                                   <span>10:00am - 10:30am</span>
+                               </div>
+                            </div>
+                            <a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Cancel Session</a>
+                        </div>
+                    </div>
+                    <div class="remaining_session session">
+                        <h5 class="session_title">Sessions Remaining</h5>
+                        <div class="session_content">
+                          <div class="counter">06</div>
+                          <div class="session_date">Expires Oct. 15th</div>
+                          <button class="btn btn-link session_btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                              <circle cx="13.8232" cy="14.1406" r="13.4395" fill="#62C554" />
+                              <path
+                                d="M19.7275 15.1465H14.7275V20.1465C14.7275 20.4117 14.6222 20.6661 14.4346 20.8536C14.2471 21.0411 13.9928 21.1465 13.7275 21.1465C13.4623 21.1465 13.208 21.0411 13.0204 20.8536C12.8329 20.6661 12.7275 20.4117 12.7275 20.1465V15.1465H7.72754C7.46232 15.1465 7.20797 15.0411 7.02043 14.8536C6.8329 14.6661 6.72754 14.4117 6.72754 14.1465C6.72754 13.8813 6.8329 13.6269 7.02043 13.4394C7.20797 13.2518 7.46232 13.1465 7.72754 13.1465H12.7275V8.14648C12.7275 7.88127 12.8329 7.62691 13.0204 7.43938C13.208 7.25184 13.4623 7.14648 13.7275 7.14648C13.9928 7.14648 14.2471 7.25184 14.4346 7.43938C14.6222 7.62691 14.7275 7.88127 14.7275 8.14648V13.1465H19.7275C19.9928 13.1465 20.2471 13.2518 20.4346 13.4394C20.6222 13.6269 20.7275 13.8813 20.7275 14.1465C20.7275 14.4117 20.6222 14.6661 20.4346 14.8536C20.2471 15.0411 19.9928 15.1465 19.7275 15.1465Z"
+                                fill="white" />
+                            </svg>
+                            Add</button>
+                        </div>
+                      </div>
+
+                    </div>
+      
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

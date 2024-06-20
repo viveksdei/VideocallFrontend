@@ -1,0 +1,38 @@
+<div class="custom_modal delete_modal action_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+            <div mat-dialog-title class="modal_title">
+                <h2 >{{title}}</h2>
+                <button aria-label="close dialog" mat-button mat-dialog-close class="btn-close" type="button" ></button>
+            </div>
+            <div class="modal_body" mat-dialog-content>
+                <p>{{message}}</p>
+            </div>
+            <div class="modal_action" mat-dialog-actions>
+                <div class="primary_btn">
+                    <button class="btn btn-outline-primary" (click)="onDismiss()">No</button>
+                    <button class="btn btn-primary" (click)="onConfirm()">Yes</button>
+                </div>
+            </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+
+<!-- 
+<h5 mat-dialog-title>
+    {{title}}
+</h5>
+
+<div mat-dialog-content>
+    <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions class="justify-content-end">
+    <button mat-button (click)="onDismiss()">No</button>
+    <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
+</div> -->

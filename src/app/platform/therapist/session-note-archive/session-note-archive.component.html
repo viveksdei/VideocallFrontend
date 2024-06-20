@@ -1,0 +1,231 @@
+<div class="note_archive">
+    <div class="note_archive_inner">
+        <div class="row m-0">
+            <div class="col-xl-3 sidebar left_sidebar">
+                <button class="btn btn-link btn_back" (click)="backTo()"><mat-icon>west</mat-icon>Back To Patient’s Room</button>
+                <h2>Session Notes <span>{{counselingCount}}</span></h2>
+                <div class="card active" *ngFor="let item of sessionGrp; let i = index">
+                    <div class="top_part part" (click)="selectedGrp(item,i+1)">
+                        <div class="icon">
+                           <img [src]="session" alt="Date">
+                        </div>
+                        <h3>Session {{i+1}}</h3>
+                    </div>
+                    <div class="bottom_part part" (click)="selectedGrp(item,i+1)">
+                          <div class="left_side side">
+                               <div class="time">
+                                   <img [src]="calender" alt="Date">
+                                   <span>{{item.createdDate}}</span>
+                               </div>
+                               <!-- <div class="time">
+                                   <img [src]="clock" alt="Clock">
+                                   <span>10:00am</span>
+                               </div> -->
+                          </div>
+                          <div class="right_side side">
+                           <img [src]="sessionbtn" alt="Session Button">
+                          </div> 
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-xl-6 main_content">
+                <div class="top_part part">
+                    <div class="session_block">
+                        <div class="icon">
+                            <img [src]="session" alt="Date">
+                         </div>
+                         <h3>{{selectedGrpV?.session}}</h3>
+                    </div>
+                    <div class="time_block">
+                        <div class="time">
+                            <img [src]="calender" alt="Date">
+                            <span>{{selectedGrpV?.date}}</span>
+                        </div>
+                        <!-- <div class="time">
+                            <img [src]="clock" alt="Clock">
+                            <span>10:00am</span>
+                        </div> -->
+                    </div>
+                    <div class="right_side side">
+                        <button class="btn btn-link"><img [src]="prev_btn" alt="Button" (click)="prevRecord()"></button>
+                        <button class="btn btn-link"><img [src]="next_btn" alt="Button" (click)="nextRecord()"></button>
+                     </div>
+                </div>
+                <div class="bottom_part part" *ngFor="let item of dapData[0]">
+                    <p>Notes taken in: <button class="btn btn-primary">DAP</button></p>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Data</label>
+                            <div class="value"[innerHTML]="item.data"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Assessment</label>
+                            <div class="value"[innerHTML]="item.assessment"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Plan</label>
+                            <div class="value"[innerHTML]="item.plans"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SOAP -->
+                <div class="bottom_part part" *ngFor="let item of soapData[0]">
+                    <p>Notes taken in: <button class="btn btn-primary">SOAP</button></p>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Subjective</label>   
+                            <div class="value"[innerHTML]="item.subjective"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Objective</label>   
+                            <div class="value"[innerHTML]="item.objective"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Assessment</label>   
+                            <div class="value"[innerHTML]="item.assessment"></div>
+                        </div>
+                    </div>
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Plan</label>
+                            <div class="value"[innerHTML]="item.plans"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 sidebar right_sidebar">
+                <div class="patient_profile" *ngIf="isUserActive" >
+          
+                  <div class="profile_item profile">
+                    <div class="title_wrapper">
+                      <h4 class="title">Patient Profile</h4>
+          
+                    </div>
+                    <div class="profile_img">
+                      <img [src]="safeDp" alt="Profile Image">
+                    </div>
+                    <h3 class="profile_title">{{activeUser?.firstName+' '+activeUser?.lastName}}</h3>
+                    <div class="profile_desc">{{ activeUser?.createdOn | date: 'medium' }}</div>
+                  </div>
+          
+                  <div class="profile_item profile_fields">
+                    <!-- <div class="item">
+                      <label>Occupation</label>
+                      <div class="value">Accountant</div>
+                    </div> -->
+                    <div class="item">
+                      <label>Religion</label>
+                      <div class="value">{{ relation }}</div>
+                    </div>
+                    <div class="item d-none">
+                      <label>Key Areas of Interest</label>
+                      <div class="value">
+                        <button type="button" class="btn btn-outline-warning">Self Actualization</button>
+                        <button type="button" class="btn btn-outline-warning">Anger Management</button>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="profile_item session">
+                    <div class="title_wrapper">
+                      <h4 class="title">Upcoming Sessions</h4>
+                    </div>
+                    <div class="video_session">
+                      <div class="top_section section">
+                        <h4>Video Session</h4>
+                        <label class="approved">Approved</label>
+                      </div>
+                      <div class="bottom_section section">
+                        <div class="dateandtime">
+                          <div class="item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                              <path
+                                d="M14.8555 2.00236H12.1985V0.673828H10.87V2.00236H5.55583V0.673828H4.22729V2.00236H1.57023C0.839539 2.00236 0.241699 2.6002 0.241699 3.33089V16.6162C0.241699 17.3469 0.839539 17.9447 1.57023 17.9447H14.8555C15.5862 17.9447 16.1841 17.3469 16.1841 16.6162V3.33089C16.1841 2.6002 15.5862 2.00236 14.8555 2.00236ZM14.8555 16.6162H1.57023V7.31649H14.8555V16.6162ZM14.8555 5.98796H1.57023V3.33089H4.22729V4.65942H5.55583V3.33089H10.87V4.65942H12.1985V3.33089H14.8555V5.98796Z"
+                                fill="#EDA92A" />
+                            </svg>
+                            <span *ngIf="closestAppointmentData">{{closestAppointmentData.slotDate | date: 'longDate' }}</span>
+                            <span *ngIf="!closestAppointmentData">-</span> 
+                          </div>
+                          <div class="item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                              <path
+                                d="M0.95459 8.30859C0.95459 9.28633 1.14717 10.2545 1.52133 11.1578C1.89549 12.0611 2.44391 12.8819 3.13527 13.5732C3.82663 14.2646 4.6474 14.813 5.5507 15.1872C6.45401 15.5613 7.42217 15.7539 8.3999 15.7539C9.37763 15.7539 10.3458 15.5613 11.2491 15.1872C12.1524 14.813 12.9732 14.2646 13.6645 13.5732C14.3559 12.8819 14.9043 12.0611 15.2785 11.1578C15.6526 10.2545 15.8452 9.28633 15.8452 8.30859C15.8452 6.33397 15.0608 4.44023 13.6645 3.04396C12.2683 1.6477 10.3745 0.863281 8.3999 0.863281C6.42528 0.863281 4.53154 1.6477 3.13527 3.04396C1.739 4.44023 0.95459 6.33397 0.95459 8.30859Z"
+                                stroke="#EDA92A" stroke-width="1.65451" stroke-linecap="round" stroke-linejoin="round" />
+                              <path d="M8.3999 4.17188V8.30816L10.8817 10.7899" stroke="#EDA92A" stroke-width="1.65451"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span *ngIf="closestAppointmentData">{{closestAppointmentData.timeAvailability}} - {{closestAppointmentData.timeAvailability}}</span>
+                            <span *ngIf="!closestAppointmentData">-</span>
+                          </div>
+                        </div>
+                        <!-- <a href="#"
+                          class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Cancel
+                          Session</a> -->
+                      </div>
+                    </div>
+                  </div>
+          
+                  <!-- <div class="profile_item session session_notes">
+                    <div class="title_wrapper">
+                      <h4 class="title">Session Notes <span>5</span></h4>
+                      <a routerLink="/" class="view_all"> View All</a>
+                    </div>
+                    <div class="video_session">
+                      <div class="top_section section">
+                        <h4>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                            <path opacity="0.3"
+                              d="M17.7144 21.4338H18.8999V18.4702H21.8635V17.2847H18.8999V14.3211H17.7144V17.2847H14.7508V18.4702H17.7144V21.4338ZM18.3071 23.8047C16.6673 23.8047 15.2692 23.2266 14.113 22.0704C12.9568 20.9142 12.3791 19.5165 12.3799 17.8774C12.3799 16.2376 12.958 14.8395 14.1142 13.6833C15.2704 12.5271 16.668 11.9494 18.3071 11.9502C19.947 11.9502 21.345 12.5283 22.5012 13.6845C23.6575 14.8407 24.2352 16.2384 24.2344 17.8774C24.2344 19.5173 23.6563 20.9154 22.5001 22.0716C21.3439 23.2278 19.9462 23.8055 18.3071 23.8047ZM5.26719 7.2084H17.1217V4.8375H5.26719V7.2084ZM10.8092 21.4338H2.89629C2.24429 21.4338 1.68595 21.2014 1.22125 20.7367C0.756555 20.272 0.524602 19.7141 0.525393 19.0629V2.4666C0.525393 1.81461 0.757741 1.25626 1.22244 0.791564C1.68713 0.326868 2.24508 0.0949148 2.89629 0.0957051H19.4926C20.1446 0.0957051 20.7029 0.328053 21.1676 0.792749C21.6323 1.25745 21.8643 1.8154 21.8635 2.4666V10.4091C21.2905 10.1325 20.7124 9.92505 20.1292 9.78675C19.5459 9.64845 18.9386 9.5793 18.3071 9.5793C18.0898 9.5793 17.8871 9.58404 17.699 9.59352C17.5109 9.60301 17.3185 9.6279 17.1217 9.66821V9.5793H5.26719V11.9502H12.5281C12.1724 12.2861 11.8512 12.6516 11.5643 13.0467C11.2774 13.4419 11.0257 13.8667 10.8092 14.3211H5.26719V16.692H10.0979C10.0584 16.8896 10.0335 17.0824 10.0232 17.2705C10.0129 17.4586 10.0082 17.6609 10.009 17.8774C10.009 18.5294 10.0683 19.1372 10.1868 19.7007C10.3053 20.2641 10.5128 20.8419 10.8092 21.4338Z"
+                              fill="#4281EA" />
+                          </svg>
+                          Session 1
+                        </h4>
+                      </div>
+                      <div class="bottom_section section">
+                        <div class="dateandtime">
+                          <div class="item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" viewBox="0 0 17 18" fill="none">
+                              <path
+                                d="M14.8555 2.00236H12.1985V0.673828H10.87V2.00236H5.55583V0.673828H4.22729V2.00236H1.57023C0.839539 2.00236 0.241699 2.6002 0.241699 3.33089V16.6162C0.241699 17.3469 0.839539 17.9447 1.57023 17.9447H14.8555C15.5862 17.9447 16.1841 17.3469 16.1841 16.6162V3.33089C16.1841 2.6002 15.5862 2.00236 14.8555 2.00236ZM14.8555 16.6162H1.57023V7.31649H14.8555V16.6162ZM14.8555 5.98796H1.57023V3.33089H4.22729V4.65942H5.55583V3.33089H10.87V4.65942H12.1985V3.33089H14.8555V5.98796Z"
+                                fill="#EDA92A" />
+                            </svg>
+                            <span>24th August 2023</span>
+                          </div>
+                          <div class="item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                              <path
+                                d="M0.95459 8.30859C0.95459 9.28633 1.14717 10.2545 1.52133 11.1578C1.89549 12.0611 2.44391 12.8819 3.13527 13.5732C3.82663 14.2646 4.6474 14.813 5.5507 15.1872C6.45401 15.5613 7.42217 15.7539 8.3999 15.7539C9.37763 15.7539 10.3458 15.5613 11.2491 15.1872C12.1524 14.813 12.9732 14.2646 13.6645 13.5732C14.3559 12.8819 14.9043 12.0611 15.2785 11.1578C15.6526 10.2545 15.8452 9.28633 15.8452 8.30859C15.8452 6.33397 15.0608 4.44023 13.6645 3.04396C12.2683 1.6477 10.3745 0.863281 8.3999 0.863281C6.42528 0.863281 4.53154 1.6477 3.13527 3.04396C1.739 4.44023 0.95459 6.33397 0.95459 8.30859Z"
+                                stroke="#EDA92A" stroke-width="1.65451" stroke-linecap="round" stroke-linejoin="round" />
+                              <path d="M8.3999 4.17188V8.30816L10.8817 10.7899" stroke="#EDA92A" stroke-width="1.65451"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>10:00am - 10:30am</span>
+                          </div>
+                        </div>
+                        <button class="btn btn-link">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                            <circle cx="16.2616" cy="16.6611" r="16.1994" fill="#4281EA" />
+                            <path
+                              d="M17.675 21.5878C17.4882 21.401 17.3985 21.1752 17.406 20.9105C17.4134 20.6459 17.5109 20.4201 17.6984 20.2333L20.3374 17.5942H9.92125C9.65656 17.5942 9.43454 17.5045 9.25518 17.3251C9.07581 17.1458 8.98644 16.9241 8.98706 16.66C8.98706 16.3953 9.07675 16.1733 9.25611 15.9939C9.43547 15.8146 9.65719 15.7252 9.92125 15.7258H20.3374L17.675 13.0634C17.4882 12.8765 17.3947 12.6545 17.3947 12.3973C17.3947 12.1401 17.4882 11.9184 17.675 11.7322C17.8618 11.5453 18.0839 11.4519 18.3411 11.4519C18.5983 11.4519 18.82 11.5453 19.0062 11.7322L23.2801 16.0061C23.3735 16.0995 23.4399 16.2007 23.4791 16.3097C23.5183 16.4187 23.5376 16.5354 23.537 16.66C23.537 16.7846 23.5174 16.9013 23.4782 17.0103C23.4389 17.1193 23.3729 17.2205 23.2801 17.3139L18.9829 21.6112C18.8116 21.7824 18.5977 21.8681 18.3411 21.8681C18.0845 21.8681 17.8625 21.7747 17.675 21.5878Z"
+                              fill="white" />
+                          </svg>
+                        </button>
+          
+                      </div>
+                    </div>
+                  </div> -->
+          
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

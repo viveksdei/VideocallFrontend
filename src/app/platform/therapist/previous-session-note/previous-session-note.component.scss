@@ -1,0 +1,141 @@
+@import '../../../../assets/css/variable/variable';
+
+.previous_session {
+    height: 100%;
+    .mat-mdc-dialog-container {
+        .mat-mdc-dialog-surface{
+            border-radius: 0 12px 12px 0;
+            &::-webkit-scrollbar{
+                width: 5px; 
+            }
+            &::-webkit-scrollbar-thumb{
+                background-color: $bodyopacitylightcolor; 
+                border-radius: 10px;
+            }
+            .previoussession_modal{
+                .modal-content {
+                    .modal_title{
+                        padding: 30px 24px;
+                    }
+                    .modal_body{
+                        position: relative;
+                        max-height: none;
+                        .card{
+                            border-color: $bodyopacitylightcolor;
+                            border-radius: 9px;
+                            margin: 0 0 30px;
+                            cursor: pointer;
+                            .part{
+                                padding: 20px;
+                                &.top_part{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0 12px;
+                                    border-bottom: 1px solid $bodyopacitylightcolor;
+                                    h3{
+                                        font-size: 24px;
+                                        font-weight: 500;
+                                        line-height: 28px;
+                                        margin: 0;
+                                    }
+                                }
+                                &.bottom_part{
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .side{
+                                        &.left_side{
+                                            .time{
+                                                display: flex;
+                                                align-items: center;
+                                                gap: 0 10px;
+                                                margin: 0 0 10px;
+                                                span{
+                                                    font-size: $font_large;
+                                                    font-weight: 500;
+                                                    line-height: 22px;
+                                                }
+                                                &:last-child{
+                                                    margin: 0;
+                                                }
+                                            }
+                                        }
+                                    }   
+                                }
+                            }
+                        }
+                        .card_content{
+                            .btn_back{
+                                font-size: $font_medium;
+                                font-weight: 400;
+                                line-height: 19px;
+                                display: flex;
+                                align-items: center;
+                                gap: 0 11px;
+                                padding-left: 0;
+                                text-decoration: none;
+                                margin: 0 0 40px;
+                            }
+                            .session_content{
+                                display: flex;
+                                justify-content: space-between;
+                                margin: 0 0 35px;
+                                flex-wrap: wrap;
+                                gap: 15px;
+                                .left_part{
+                                    display: flex;
+                                    gap: 0 12px;
+                                }
+                                .right_part{
+                                    .time{
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0 10px;
+                                        margin: 0 0 10px;
+                                        span{
+                                            font-size: $font_large;
+                                            font-weight: 500;
+                                            line-height: 22px;
+                                            color: $bodycolor;
+                                        }
+                                    }
+                                    p{
+                                        font-size: $font_medium;
+                                        font-weight: 400;
+                                        line-height: 19px;
+                                        margin: 15px 0 0;
+                                    }
+
+                                }
+                            }
+                            .session_info{
+                                .session_item{
+                                    margin: 0 0 35px;
+                                    label{
+                                        font-size: $font_medium;
+                                        font-weight: 500;
+                                        line-height: 19px;
+                                    }
+                                    .value{
+                                        font-size: $font_medium;
+                                        font-weight: 400;
+                                        line-height: 27px;
+                                    }
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+           
+        }
+
+    }
+}
+.site-loader{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% ,-50%);
+}

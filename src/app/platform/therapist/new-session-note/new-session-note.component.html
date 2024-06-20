@@ -1,0 +1,80 @@
+<div class="custom_modal newsession_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div mat-dialog-title class="modal_title">
+            <h2>Session {{sessionNo}} </h2>
+            <button aria-label="close dialog" mat-button mat-dialog-close class="btn-close"></button>
+        </div>
+        <div class="modal_body" mat-dialog-content>
+            <h6>Note System</h6>
+            <div class="session_tab">
+                <mat-tab-group>
+                    <mat-tab label="DAP">
+                        <div class="editor_item">
+                            <h6 class="editor_title">Data</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="dapabouteditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="dapabouteditor" [(ngModel)]="DAP_DataNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <h6 class="editor_title">Assessment</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="dapassessmenteditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="dapassessmenteditor" [(ngModel)]="DAP_AssNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <h6 class="editor_title">Plan</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="dapplaneditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="dapplaneditor" [(ngModel)]="DAP_PlaNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <button class="btn btn-primary btn_small" style="background-color: #0d6efd;"
+                            (click)="onSubmit('DAP')">Save </button>
+                        </div>
+                    
+                    </mat-tab>
+                    <mat-tab label="SOAP">
+                        <div class="editor_item">
+                            <h6 class="editor_title">Subjective</h6>   
+                            <div class="NgxEditor__Wrapper"> 
+                                <ngx-editor-menu [editor]="abouteditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="abouteditor" [(ngModel)]="SOAP_SubNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <h6 class="editor_title">Objective</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="objeditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="objeditor" [(ngModel)]="SOAP_ObjNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <h6 class="editor_title">Assessment</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="assessmenteditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="assessmenteditor" [(ngModel)]="SOAP_AssessmentNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <h6 class="editor_title">Plan</h6>   
+                            <div class="NgxEditor__Wrapper">
+                                <ngx-editor-menu [editor]="planeditor" [toolbar]="toolbar"> </ngx-editor-menu>
+                                <ngx-editor [style]="{height:'200px',display:'block'}" [editor]="planeditor" [(ngModel)]="SOAP_PlanNote" [disabled]="false" [placeholder]="'Type here...'"></ngx-editor>
+                            </div>
+                        </div>
+                        <div class="editor_item">
+                            <button class="btn btn-primary btn_small" style="background-color: #0d6efd;"
+                            (click)="onSubmit('SOAP')">Save</button>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

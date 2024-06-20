@@ -1,0 +1,183 @@
+/* You can add global styles to this file, and also import other style files */
+/* MIXINS */
+// media aliases and breakpoints
+$screen-sm-max: 767px;
+$screen-xs-min: 768px;
+$screen-xs-max: 1023px;
+$screen-xl-min: 1600px;
+
+$screen-xsl-max: 576px;
+$screen-xs-mini: 736px;
+$screen-md-max: 991px;
+$screen-mdl-max: 992px;
+$screen-lg-max: 1025px;
+$screen-tab: 1200px;
+$screen-xl-max: 1900px;
+$screen-xxl-max: 1500px;
+$landscape: landscape;
+$landscape: landscape;
+$screen-xs-max-ipad: 915px;
+$screen-ipad-pro-max: 1376px;
+$screen-ipad-max: 1022px;
+
+
+@mixin sm {
+  @media screen and (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin abv-1500 {
+  @media screen and (min-width: #{$screen-xxl-max}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$screen-xl-max}) {
+    @content;
+  }
+}
+
+@mixin ipad-pro {
+  @media screen and (min-width: #{$screen-xs-max}) and (max-width: #{$screen-ipad-pro-max}) {
+    @content;
+  }
+}
+
+
+@mixin landscape-xs {
+  @media (orientation: #{$landscape}) and (max-width: #{$screen-xs-min}) and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media screen and (max-width: #{$screen-xs-max}) {
+    @content;
+  }
+}
+
+@mixin xsl {
+  @media screen and (max-width: #{$screen-xsl-max}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media screen and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin mdl {
+  @media screen and (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+
+@mixin media-max-tab-screen {
+  @media screen and (max-width: #{$screen-tab}) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: #{$landscape}) and (max-width: #{$screen-lg-max}) {
+    @content;
+  }
+}
+@mixin landscape-sm {
+  @media (orientation: #{$landscape}) and (min-width: #{$screen-xs-min}) and (max-width: #{$screen-xs-max-ipad}) {
+    @content;
+  }
+}
+@mixin landscape-xs {
+  @media (orientation: #{$landscape}) and (max-width: #{$screen-xs-max-ipad}) {
+    @content;
+  }
+}
+@mixin landscape-xs-mini {
+  @media (orientation: #{$landscape}) and (max-width: #{$screen-xs-mini}) {
+    @content;
+  }
+}
+
+/* MIXINS */
+$primaryColor: #EA576A;
+$secondaryColor: #1E85DA;
+$tagColor: #0966C2;
+$lightGray: #FFF8F6;
+$darkGray: #31313C;
+$textBlack1: #191919;
+$textBlack2: #363636;
+$textBlack3: #263238;
+$textBlack4: #424242;
+$black: #000000;
+$white: #ffffff;
+$grayColor: #CBCBCB;
+$grayColor1: #f9f9ff;
+$grayColor2: #ededed;
+$grayColor3: #F6F6F6;
+$grayColor4: #9d9d9d;
+$dangerColor: #CE0000;
+$greenColor: #30D35C;
+$yellowColor: #F4C957;
+$textGray: #1F1D28;
+
+
+$fontFamily: 'Montserrat', sans-serif;
+$fontLato: 'Lato', sans-serif;
+
+$font10: 10px;
+$font11: 11px;
+$font12: 12px;
+$font13: 13px;
+$font14: 14px;
+$font15: 15px;
+$font16: 16px;
+$font17: 17px;
+$font18: 18px;
+$font19: 19px;
+$font22: 22px;
+$font20: 20px;
+$font24: 24px;
+$font25: 25px;
+$font30: 30px;
+$font34: 34px;
+$font36: 36px;
+$font40: 40px;
+$font45: 45px;
+$font50: 50px;
+$font52: 52px;
+$font60: 60px;
+$font62: 62px;
+
+$extrathin: 200;
+$thin: 300;
+$normal: 400;
+$medium: 500;
+$bold: 600;
+$semibold: 700;
+$extrabold: 800;
+
+$uppercase: uppercase;
+$capitalize: capitalize;

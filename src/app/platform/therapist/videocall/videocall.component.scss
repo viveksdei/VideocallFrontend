@@ -1,0 +1,88 @@
+@import '../../../../assets/css/variable/variable';
+
+// .video_call{
+//     background-color: #252525;
+//     .top_bar{
+//         margin: 0 0 15px;
+//         .primary_btn{
+//             .btn{
+//                 color: $white_color;
+//                 font-size: $font_medium;
+//                 gap: 0 7px;
+//                 padding-left: 0;
+//             }
+//         }
+//     }
+//     .bottom_bar{
+//         .video_part{
+//             position: relative;
+//         }
+//         .video_btn{
+//             position: absolute;
+//             bottom: 25px;
+//             top: auto;
+//             left: 50%;
+//             right: auto;
+//             transform: translateX(-50%);
+//             justify-content: center;
+//             background: linear-gradient(90deg, #407FEA 0%, #6CB9DA 100%);
+//             border-radius: 12px;
+//             padding: 10px 20px;
+//             gap: 0 40px;
+//             .btn{
+//                 padding: 0;
+//                 border: none;
+//             }
+//         }
+//     }
+// }
+
+// @media screen and (max-width:$desktop) {
+//     .video_call{
+//         .bottom_bar{
+//             .video_btn{
+//                 gap: 0 15px;
+//                 .btn{
+//                    &:nth-child(1){
+//                         svg{
+//                             width: 30px;
+//                             height: 21px;
+//                         }
+//                    }
+//                    &:nth-child(2){
+//                     svg{
+//                         width: 18px;
+//                         height: 24px;
+//                     }
+//                   }
+//                   &:nth-child(3){
+//                     svg{
+//                         width: 24px;
+//                         height: 24px;
+//                     }
+//                   }
+//                   &:nth-child(4){
+//                     svg{
+//                         width: 22px;
+//                         height: 21px;
+//                     }
+//                   }
+//                   &:nth-child(5){
+//                     svg{
+//                         width: 5px;
+//                         height: 19px;
+//                     }
+//                   }
+//                   &:nth-child(6){
+//                     svg{
+//                         width: 35px;
+//                         height: 31px;
+//                     }
+//                   }
+               
+//                 }
+//             }
+//         }
+//     }
+
+// }

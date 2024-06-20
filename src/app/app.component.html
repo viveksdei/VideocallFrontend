@@ -1,0 +1,61 @@
+<ngx-ui-loader></ngx-ui-loader>
+<router-outlet ></router-outlet>
+<div class="video_call_block dashboard_main_content">
+    <div
+      #videoDiv
+      
+      style="left: 15px;"
+      (dragEnd)="onDragVideo($event)"
+      class="video-tool video-tool-hide readmin-panel"
+      [ngStyle]="styleVideo"
+    >
+      <!-- <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"></div>
+      <div class="resize-handle-left" mwlResizeHandle [resizeEdges]="{ left: true }"></div>
+      <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"></div>
+      <div class="resize-handle-bottom" mwlResizeHandle [resizeEdges]="{ bottom: true }"></div> -->
+      <!-- <div class="video-tool video-tool-hide readmin-panel col-sm-6"> -->
+      <div
+        *ngIf="session && isVideoStarted"
+        class="video-call ots-widget-container"
+      >
+      <div class="primary_btn">
+            <!-- <button class="btn btn-link" [routerLink]="['/platform/therapist/chat']"><mat-icon>west</mat-icon>Back To Patient’s Room</button> -->
+        </div>
+        <app-publisher
+          [session]="session"
+          [patientAppointmentId]="apptId"
+          [otSessionId]="otSessionId"
+        ></app-publisher>
+
+        <app-subscriber
+          class="app-subscriber"
+          (click)="toggleActivation(i)"
+          [index]="i"
+          [class.sub-active]="i == 0"
+          [class.sub-not-active]="i != 0"
+          *ngFor="let stream of streams; let i = index"
+          [stream]="stream"
+          [session]="session"
+        ></app-subscriber>
+
+        <!-- <app-test-videocall-publisher
+          [session]="session"
+          [patientAppointmentId]="apptId"
+          [otSessionId]="otSessionId">
+        </app-test-videocall-publisher> -->
+
+
+        <!-- <app-text-video-call
+        class="app-subscriber"
+        (click)="toggleActivation(i)"
+        [index]="i"
+        [class.sub-active]="i == 0"
+        [class.sub-not-active]="i != 0"
+        *ngFor="let stream of streams; let i = index"
+        [stream]="stream"
+        [session]="session">
+          
+        </app-text-video-call> -->
+      </div>
+    </div>
+  </div>

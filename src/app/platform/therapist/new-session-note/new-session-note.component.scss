@@ -1,0 +1,94 @@
+@import '../../../../assets/css/variable/variable';
+
+.new_session {
+    height: 100%;
+    .mat-mdc-dialog-container {
+        .mat-mdc-dialog-surface{
+            border-radius: 0 12px 12px 0;
+            &::-webkit-scrollbar{
+                width: 5px; 
+            }
+            &::-webkit-scrollbar-thumb{
+                background-color: $bodyopacitylightcolor; 
+                border-radius: 10px;
+            }
+            .modal-content {
+                .modal_title{
+                    padding: 30px 24px;
+                }
+                .modal_body{
+                    position: relative;
+                    max-height: none;
+                    h6{
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 19px;
+                        margin: 0 0 12px;
+                    }
+                    .session_tab{
+                        mat-tab-header{
+                            margin: 0 0 25px;
+                            .mat-mdc-tab-list{
+                                border: none;
+                                .mat-mdc-tab-labels{
+                                    display: inline-flex;
+                                    gap: 5px;
+                                    .mdc-tab  {
+                                        font-family: $font_family_body;
+                                        height: 35px;
+                                        padding: 0 12px;
+                                        min-width: auto;
+                                        background-color: $white_color;
+                                        border: 1px solid $bodyhovercolor;
+                                        border-radius: 200px;
+                                        &:first-child{
+                                            margin-left: 0;
+                                        }
+                                        .mdc-tab__content{
+                                            .mdc-tab__text-label{
+                                                font-size: $font_medium;
+                                                font-weight: 500;
+                                                color: $bodyhovercolor;
+                                            }
+                                        }
+                                        .mdc-tab-indicator{
+                                            display: none;
+                                        }
+                                        &:hover{
+                                            background: $bodyhovercolor;
+                                            .mdc-tab__content{
+                                                .mdc-tab__text-label{
+                                                    color: $white_color;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .mdc-tab.mdc-tab--active{
+                                        background-color: $bodyhovercolor;
+                                        .mdc-tab__content{
+                                            .mdc-tab__text-label{
+                                                color: $white_color;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .mat-mdc-tab-body{
+                            .editor_item{
+                                margin: 0 0 25px;
+                                .NgxEditor__Wrapper{
+                                    border-radius: 0 0 4px 4px;
+                                    border-color: $bodyopacitylightcolor;
+                                    border-top: 8px solid #EDA92A;
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+

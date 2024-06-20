@@ -1,0 +1,415 @@
+@import '../../../assets/css/variable/variable';
+
+.note_archive{
+    .note_archive_inner{
+        .sidebar{
+            padding: 25px;
+            &.left_sidebar{
+                .btn_back{
+                    font-size: $font_medium;
+                    display: flex;
+                    gap: 0 7px;
+                    padding-left: 0;
+                    color: $bodyhovercolor;
+                    text-decoration: none;
+                    margin: 0 0 25px;
+                    text-align: left;
+                }
+                h2{
+                    font-size: 24px;
+                    font-weight: 500;
+                    line-height: 28px;
+                    margin: 0 0 22px;
+                    span{
+                        font-size: 24px;
+                        font-weight: 500;
+                        line-height: 28px;
+                        background-color: #D9E6FB;
+                        border-radius: 5px;
+                        padding: 3px 9px;
+                        margin: 10px 0 10px 10px;
+                        display: inline-block;
+                    }
+                }
+                .card{
+                    border-color: $bodyopacitylightcolor;
+                    border-radius: 9px;
+                    margin: 0 0 25px;
+                    cursor: pointer;
+                    .part{
+                        padding: 17px;
+                        &.top_part{
+                            display: flex;
+                            align-items: center;
+                            gap: 0 12px;
+                            border-bottom: 1px solid $bodyopacitylightcolor;
+                            .icon{
+                                img{
+                                    width: 24px;
+                                    height: 24px;
+                                }
+                            }
+                            h3{
+                                font-size: $font_large;
+                                font-weight: 500;
+                                line-height: 20px;
+                                margin: 0;
+                            }
+                        }
+                        &.bottom_part{
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            gap: 10px;
+                            .side{
+                                &.left_side{
+                                    .time{
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0 10px;
+                                        margin: 0 0 10px;
+                                        span{
+                                            font-size: $font_small;
+                                            font-weight: 500;
+                                            line-height: 18px;
+                                        }
+                                        &:last-child{
+                                            margin: 0;
+                                        }
+                                    }
+                                }
+                                &.right_side {
+                                    img{
+                                        width: 32px;
+                                        height: 32px;
+                                    }
+                                }
+                            }   
+                        }
+                    }
+                    &.active{
+                        box-shadow: 0px 4px 30px 0px #4281EA40;
+                    }
+                }
+            }
+            &.right_sidebar{
+                .patient_profile{
+                    .profile_item{
+                        margin: 0 0 50px;
+                        .title_wrapper{
+                            margin: 0 0 20px;
+                            .title{
+                                font-size: $font_medium;
+                                font-weight: 600;
+                                line-height: 19px;
+                                color: $bodycolor;
+                            }
+                        }
+                        &.profile{
+                            .title{
+                                font-size: 21px;
+                                font-weight: 600;
+                                line-height: 24px;
+                                color: $bodycolor;
+                                margin: 0 0 25px;
+                            }
+                            .therapist_profile{
+                                padding: 28px;
+                                background: #4281EA17;
+                                border-radius: 6px;
+                                margin: 0 0 20px;
+                                text-align: center;
+                                .profile_img{
+                                    img{
+                                        width: 128px;
+                                        height: 128px;
+                                        border-radius: 50%;
+                                    }
+                                    margin: 0 0 20px;
+                                }
+                                .prfile_title{
+                                    font-size: 22px;
+                                    font-weight: 500;
+                                    line-height: 26px;
+                                    margin: 0 0 7px;
+                                }
+                                .profile_rating{
+                                    font-size: 14px;
+                                    font-weight: 400;
+                                    line-height: 20px;
+                                    margin: 0 0 15px;
+                                    display: block;
+                                }
+                                .rating{
+                                    display: flex;
+                                    justify-content: center;
+                                    gap: 0 5px;
+                                    margin: 0 0 25px;
+                                    .rating_icon{
+                                        .mat-icon{
+                                            width: 20px;
+                                            height: 20px;
+                                            font-size: 20px;
+                                            color: $star_color;
+                                        }
+                                    }
+                                    .rating_counter{
+                                        font-size: $font_small;
+                                        font-weight: 400;
+                                        line-height: 20px;
+                                    }
+                                }
+                            }
+                            .request_therapy{
+                                width: 100%;
+                                border-radius: 6px;
+                            }
+                        }
+
+                        &.session{
+                            .video_session{
+                                border: 1px solid $bodyopacitylightcolor;
+                                border-radius: 8px;
+                                min-height: 140px;
+                                margin: 0 0 33px;
+                                .section{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    gap: 10px;
+                                    flex-wrap: wrap;
+                                    &.top_section{
+                                        border-bottom: 1px solid $bodyopacitylightcolor;
+                                        padding: 15px;
+                                        h4{
+                                            font-size: 22px;
+                                            font-weight: 500;
+                                            color: $bodycolor;
+                                            margin: 0;
+                                        }
+                                        label{
+                                            font-size: $font_extra_small;
+                                            font-weight: 400;
+                                            line-height: 14px;
+                                            border-radius: 200px;
+                                            padding: 6px 15px;
+                                            margin: 0;
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 0 7px;
+                                            &::before{
+                                                content: "";
+                                                display: block;
+                                                width: 7px;
+                                                height: 7px;
+                                                border-radius: 50%;
+                                            }
+                                            &.approved{
+                                                background-color: #C2FCD2;
+                                                color: #1B8739;
+                                                &::before{
+                                                    background-color: #1B8739;
+                                                }
+                                            }
+                                            &.cancel{
+                                                background-color: rgba(236, 109, 98, 0.3);
+                                                color: #E30102;
+                                                &::before{
+                                                    background-color: #E30102;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.bottom_section{
+                                        align-items: flex-end;
+                                        padding: 15px;
+                                        .dateandtime{
+                                            .item{
+                                                margin: 0 0 5px;
+                                                font-size: $font_small;
+                                                font-weight: 500;
+                                                svg{
+                                                    margin: 0 10px 0 0;
+                                                }
+                                                &:last-child{
+                                                    margin: 0;
+                                                }
+                                            }
+                                        }
+                                        .btn {
+                                            padding: 0;
+                                        }
+                                    }
+                                }
+                            }
+                            .remaining_session{
+                                border: 1px solid $bodyopacitylightcolor;
+                                border-radius: 8px;
+                                padding: 20px;
+                                min-height: 140px;
+                                flex-direction: column;
+                                align-items: flex-start;
+                                justify-content: flex-end;
+                                .session_title{
+                                    font-size: $font_large;
+                                    font-weight: 500;
+                                    line-height: 24px;
+                                }
+                                .session_content{
+                                    display: flex;
+                                    align-items: flex-end;
+                                    flex-wrap: wrap;
+                                    justify-content: space-between;
+                                    gap: 15px;
+                                    .counter{
+                                        font-size: 60px;
+                                        font-weight: 500;
+                                        line-height: 60px;
+                                        color: $bodycolor;
+                                    }
+                                    .session_date{
+                                        font-size: $font_extra_small;
+                                        font-weight: 600;
+                                        line-height: 14px;
+                                        color: $secondary_color;
+                                        background-color: #FAE6C0;
+                                        padding: 6px 15px;
+                                        border-radius: 200px;
+                                    }
+                                    .session_btn{
+                                        padding: 0;
+                                        text-decoration: none;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0 8px;
+                                        color: $green_color;
+                                        font-size: 14px;
+                                        svg{
+                                            min-width: 26px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                       
+                    }
+                }
+            }
+        }
+        .main_content{
+            border-style: solid;
+            border-width: 0 1px 0;
+            border-color: $bodyopacitylightcolor;
+            padding: 0;
+            .part{
+                padding: 25px;
+                &.top_part{
+                    border-bottom: 1px solid $bodyopacitylightcolor;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    .side{
+                        &.left_side {
+                            display: flex;
+                            align-items: center;
+                            gap: 15px 50px;
+                            .session_block{
+                                display: flex;
+                                align-items: center;
+                                gap: 0 12px;
+                                position: relative;
+                                min-width: 155px;
+                                h3{
+                                    font-size: 24px;
+                                    font-weight: 500;
+                                    line-height: 28px;
+                                    margin: 0;
+                                }
+                                &::after{
+                                    content: "";
+                                    display: block;
+                                    width: 1px;
+                                    height: 100%;
+                                    background-color: $bodyopacitylightcolor;
+                                    position: absolute;
+                                    right: -22px;
+                                    left: auto;
+                                }
+                            }
+                            .time_block{
+                                display: flex;
+                                align-items: center;
+                                flex-wrap: wrap;
+                                gap: 5px 12px;   
+                                .time{
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 0 10px;
+                                    span{
+                                        font-size: $font_small;
+                                        font-weight: 500;
+                                        line-height: 16px;
+                                    }
+                                }
+                            }
+                        }
+                        &.right_side {
+                            .btn {
+                                padding: 0;
+                                margin: 0 5px;
+                            }
+                        }
+                    }
+                }
+                &.bottom_part{
+                    p{
+                        font-size: $font_large;
+                        .btn {
+                            margin-left: 10px;
+                            font-size: $font_large;
+                        }
+                    }
+                    .session_info{
+                        .session_item{
+                            margin: 0 0 35px;
+                            label{
+                                font-size: $font_large;
+                                font-weight: 500;
+                                line-height: 19px;
+                            }
+                            .value{
+                                font-size: $font_large;
+                                font-weight: 400;
+                                line-height: 27px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1650px) {
+    .note_archive .note_archive_inner .sidebar{
+        padding: 35px 50px 35px;
+        width: 24.85%;
+    }
+    .note_archive .note_archive_inner .main_content{
+        width: 49.7%;
+    }
+    .note_archive .note_archive_inner .main_content .part{
+        padding: 25px 40px;
+    }
+}
+@media screen and (max-width:$small_phone) {
+    .note_archive .note_archive_inner .main_content .part.top_part .side.left_side{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .note_archive .note_archive_inner .main_content .part.top_part .side.left_side .session_block::after{
+        display: none;
+    }
+}

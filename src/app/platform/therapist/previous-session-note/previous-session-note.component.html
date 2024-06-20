@@ -1,0 +1,130 @@
+<img class="site-loader" *ngIf="sppiner" src="assets/img/spinner.gif" alt="">
+<div class="custom_modal previoussession_modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div mat-dialog-title class="modal_title">
+            <h2>Session Notes Archive </h2>
+            <button aria-label="close dialog" mat-button mat-dialog-close class="btn-close"></button>
+        </div>
+        <div class="modal_body" mat-dialog-content>
+            <div *ngFor="let item of sessionGrp; let i = index">
+
+             <div class="card" (click)="issession = !issession" *ngIf="!issession">
+                 <div class="top_part part" (click)="selectedGrp(item,i+1)">
+                     <div class="icon">
+                        <img [src]="session" alt="Date">
+                     </div>
+                     <h3>Session {{i+1}}</h3>
+                 </div>
+                 <div class="bottom_part part" (click)="selectedGrp(item,i+1)">
+                       <div class="left_side side">
+                            <div class="time">
+                                <img [src]="calender" alt="Date">
+                                <span>{{item.createdDate}}</span>
+                            </div>
+                            <!-- <div class="time">
+                                <img [src]="clock" alt="Clock">
+                                <span>10:00am</span>
+                            </div> -->
+                       </div>
+                       <div class="right_side side" >
+                        <img [src]="sessionbtn" alt="Session Button">
+                       </div> 
+                 </div>
+             </div>
+            </div>
+
+
+
+
+
+             <div class="card_content" *ngIf="issession">
+                <button class="btn btn-link btn_back" (click)="issession = !issession"><mat-icon>west</mat-icon>Back To Archive</button>
+                 <div class="session_content">
+                      <div class="left_part">
+                        <div class="icon">
+                            <img [src]="session" alt="Date">
+                         </div>
+                         <h3>{{selectedGrpV.session}}</h3>
+                      </div>
+                      <div class="right_part">
+                        <div class="time">
+                            <img [src]="calender" alt="Date">
+                            <span>{{selectedGrpV.date}}</span>
+                        </div>
+                        <!-- <div class="time">
+                            <img [src]="clock" alt="Clock">
+                            <span>10:00am</span>
+                        </div> -->
+                        <p>Notes taken in: <button class="btn btn-primary">DAP</button></p>
+                      </div>
+                 </div>
+
+                 <!-- DAP -->
+                <div *ngFor="let item of dapData[0]">
+                 <div class="session_info">
+                     <div class="session_item">
+                         <label>Data</label>   
+                         <div class="value" [innerHTML]="item.data"></div>
+                     </div>
+                 </div>
+                 <div class="session_info">
+                    <div class="session_item">
+                        <label>Assessment</label>   
+                        <div class="value"[innerHTML]="item.assessment"></div>
+                    </div>
+                </div>
+                <div class="session_info">
+                    <div class="session_item">
+                        <label>Plan</label>   
+                        <div class="value"[innerHTML]="item.plans"></div>
+                    </div>
+                </div>
+
+            
+            
+                </div>
+
+                <!-- SOAP -->
+                <p style="text-align: right;">Notes taken in: <button class="btn btn-primary">SOAP</button></p>
+                <div *ngFor="let item of soapData[0]">
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Subjective</label>   
+                            <div class="value" [innerHTML]="item.subjective"></div>
+                        </div>
+                    </div>
+
+                    <div class="session_info">
+                        <div class="session_item">
+                            <label>Objective</label>   
+                            <div class="value"[innerHTML]="item.objective"></div>
+                        </div>
+                    </div>
+
+                    <div class="session_info">
+                       <div class="session_item">
+                           <label>Assessment</label>   
+                           <div class="value"[innerHTML]="item.assessment"></div>
+                       </div>
+                   </div>
+                   <div class="session_info">
+                       <div class="session_item">
+                           <label>Plan</label>   
+                           <div class="value"[innerHTML]="item.plans"></div>
+                       </div>
+                   </div>
+   
+               
+               
+                   </div>
+
+
+             </div>
+           
+
+        </div>
+      </div>
+    </div>
+  
+  </div>

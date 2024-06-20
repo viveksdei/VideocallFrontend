@@ -1,0 +1,44 @@
+@import "../../assets/css/variable/variable";
+
+body{
+    .main_block {
+        display: flex;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        .main_section {
+            margin-left: 280px;
+            width: 100%;
+            height: 100vh;
+            // overflow: hidden;
+            transition: all .5s ease-in;
+            -webkit-transition: all .5s ease-in;
+            -moz-transition: all .5s ease-in;
+            -ms-transition: all .5s ease-in;
+            -o-transition: all .5s ease-in;
+        }
+    }
+    &.close{
+        .main_block {
+            .main_section {
+                margin-left: 0;
+                transition: all .5s ease-in;
+                -webkit-transition: all .5s ease-in;
+                -moz-transition: all .5s ease-in;
+                -ms-transition: all .5s ease-in;
+                -o-transition: all .5s ease-in;
+            }
+        } 
+    }
+}
+
+
+@media screen and (max-width: $tablet) {
+    .main_block .sidebar_section {
+        width: auto;
+    }
+    body .main_block .main_section {
+        margin-left: 0;
+        width: 100%;
+    }
+}
